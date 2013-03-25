@@ -18,6 +18,9 @@
     "expect.js":"0.2.x",
     "structr":"*"
   },
+  "scripts": {
+    "test": "mocha --reporter min"
+  },
   "author": "",
   "license": "BSD",
   "readmeFilename": "README.md",
