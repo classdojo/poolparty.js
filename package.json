@@ -1,0 +1,25 @@
+{
+  "name": "poolparty",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/classdojo/poolparty.js.git"
+  },
+  "devDependencies": {
+    "mocha":"1.8.x",
+    "expect.js":"0.2.x",
+    "structr":"*"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "5ea0f204528d657f05c7f27782c4d6a6384819f9"
+}
