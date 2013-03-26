@@ -61,10 +61,23 @@ objectPool.add(basicView);
 #### pool poolparty(options)
 
 - `max` - the max number of objects allowed in a pool
+- `min` - minimum number of items to use in the pool
 - `keepAliveTimeout` - the number of MS before destroying a stale object
 - `factory` - the function which creates a pool object
 - `recycle` - called whenever an object is recycled
 
+
+### pool.size()
+
+returns the size of the pool
+
+### pool.drip()
+
+removes one item from the pool
+
+### pool.drain()
+
+removes all items from the pool except the min
 
 ### object pool.add(item)
 

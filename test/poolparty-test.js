@@ -4,7 +4,7 @@ structr = require("structr");
 
 describe("poolparty", function() {
 
-  var objectPool, objects = {};
+  var objectPool, object = {};
 
   var TestObject = structr({
     __construct: function(options) {
@@ -21,18 +21,19 @@ describe("poolparty", function() {
   it("can create a pool party", function() {
     objectPool = poolparty({
       max: 50,
+      min: 1,
       staleTimeout: 10,
       factory: function(options) {
         return new TestObject(options);
       },
-      reset: function(testObject, options) {
+      recycle: function(testObject, options) {
         testObject.reset(options);
       }
     })
   })
 
   it("can create an object", function() {
-    expect(object.obj1 = objectPool.create({name:"craig"}).options.name).to.be("craig");
+    expect((object.obj1 = objectPool.create({name:"craig"})).options.name).to.be("craig");
   });
 
   it("can dispose an object", function() {
@@ -42,7 +43,7 @@ describe("poolparty", function() {
 
 
   it("can recycle an object", function() {
-    expect(object.obj2 = objectPool.create({name:"jake"}).options.name).to.be("jake");
+    expect((object.obj2 = objectPool.create({name:"jake"})).options.name).to.be("jake");
     expect(object.obj2).to.be(object.obj1);
   });
 
@@ -64,19 +65,28 @@ describe("poolparty", function() {
 
     for(i = objects.length; i--;) {
       objects[i].dispose();
-      expect(objectPool.length()).to.be.less.than(objectPool.max);
+      expect(objectPool.size()).to.be.lessThan(objectPool.max + 1);
     }
   });
 
+  it("can drain the pool", function() {
+    objectPool.drain();
+  })
 
-  it("can remove a stale object", function() {
+  it("pool still has 1 object left over", function() {
+    expect(objectPool.size()).to.be(1);
+  })
+
+
+  it("can remove a stale object", function(next) {
     var obj = objectPool.create({name:"john"});
 
     obj.dispose();
 
     setTimeout(function() {
       expect(objectPool._pool).not.to.contain(obj);
-    }, 11);
+      next();
+    }, 500);
   })
 
 });
