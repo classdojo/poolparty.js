@@ -18,9 +18,6 @@ class BasicView extends EventEmitter
 
   reset: (@options) ->
 
-  ###
-  ###
-
 
 ```
 
@@ -46,10 +43,6 @@ var objectPool = require("poolparty")({
 
 //create a 
 var basicView = objectPool.create({ name: "craig" });
-
-
-//either dispose the object
-basicView.dispose();
 
 //or explicitly add the object back in the object pool
 objectPool.add(basicView);

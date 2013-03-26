@@ -15,6 +15,7 @@ describe("poolparty", function() {
     },
     dispose: function() {
       this._wasDisposed = true;
+      objectPool.add(this);
     }
   })
 
@@ -87,6 +88,6 @@ describe("poolparty", function() {
       expect(objectPool._pool).not.to.contain(obj);
       next();
     }, 500);
-  })
+  });
 
 });

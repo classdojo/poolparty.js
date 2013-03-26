@@ -55,16 +55,7 @@ class PoolParty
       return item
 
     item = @factory options
-
-    oldDispose = item.constructor.prototype.dispose
-
     item.__pool = @
-    item.dispose = () =>
-      if oldDispose
-        oldDispose.call(item)
-
-      @add item
-
     item
 
 
