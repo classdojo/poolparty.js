@@ -41,10 +41,10 @@ var objectPool = require("poolparty")({
 });
 
 
-//create a 
+#create a 
 var basicView = objectPool.create({ name: "craig" });
 
-//or explicitly add the object back in the object pool
+#or explicitly add the object back in the object pool
 objectPool.add(basicView);
 ```
 
