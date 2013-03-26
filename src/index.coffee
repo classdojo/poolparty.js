@@ -8,7 +8,7 @@ class PoolParty
     @max          = options.max or 50
     @min          = options.min or 0
     @staleTimeout = options.staleTimeout or 1000
-    @factory      = options.factory
+    @factory      = options.factory or options.create
     @recycle      = options.recycle
 
     @_pool = []

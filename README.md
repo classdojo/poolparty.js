@@ -31,7 +31,7 @@ var objectPool = require("poolparty")({
   keepAliveTimeout: 1000 * 10
 
   # the function that creates the basic views
-  factory: (options) ->
+  create: (options) ->
     view = new BasicView()
     view.reset options
 

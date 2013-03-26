@@ -24,7 +24,7 @@ describe("poolparty", function() {
       max: 50,
       min: 1,
       staleTimeout: 10,
-      factory: function(options) {
+      create: function(options) {
         return new TestObject(options);
       },
       recycle: function(testObject, options) {
