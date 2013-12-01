@@ -1,4 +1,4 @@
-### Object Pooling & Recycling
+### Object Pooling & Recycling [![Alt ci](https://travis-ci.org/classdojo/poolparty.js.png)](https://travis-ci.org/classdojo/poolparty.js)
 
 
 ### Motiviation
