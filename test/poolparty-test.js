@@ -1,23 +1,24 @@
 var poolparty = require("../"),
 expect = require("expect.js"),
-structr = require("structr");
+protoclass = require("protoclass");
 
 describe("poolparty", function() {
 
   var objectPool, object = {};
 
-  var TestObject = structr({
-    __construct: function(options) {
-      this.reset(options);
-    },
-    reset: function(options) {
+  function TestObject (options) {
+    this.reset(options);
+  }
+
+  protoclass(TestObject, {
+    reset: function (options) {
       this.options = options;
     },
-    dispose: function() {
+    dispose: function () {
       this._wasDisposed = true;
       objectPool.add(this);
     }
-  })
+  });
 
   it("can create a pool party", function() {
     objectPool = poolparty({
