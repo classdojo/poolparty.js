@@ -1,28 +1,28 @@
 {
   "name": "poolparty",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter min"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/classdojo/poolparty.js.git"
   },
   "devDependencies": {
-    "mocha":"1.8.x",
-    "expect.js":"0.2.x",
-    "structr":"*"
-  },
-  "scripts": {
-    "test": "mocha --reporter min"
+    "mocha": "1.8.x",
+    "expect.js": "0.2.x",
+    "structr": "0.2.x"
   },
   "author": "",
   "license": "BSD",
   "readmeFilename": "README.md",
-  "gitHead": "5ea0f204528d657f05c7f27782c4d6a6384819f9"
+  "gitHead": "5ea0f204528d657f05c7f27782c4d6a6384819f9",
+  "dependencies": {
+    "protoclass": "0.0.2"
+  }
 }
