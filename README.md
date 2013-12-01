@@ -1,7 +1,7 @@
 ### Object Pooling & Recycling [![Alt ci](https://travis-ci.org/classdojo/poolparty.js.png)](https://travis-ci.org/classdojo/poolparty.js)
 
+poolparty.js was created to reduce the overhead of creating expensive objects such as views, dom elements, etc. It's used in [paperclip.js](/classdojo/paperclip.js), and [mojo.js](/classdojo/mojo.js).
 
-Pool Party was created to reduce the overhead of creating expensive objects such as DOM elements from a compiled template, views, etc. It's used in [paperclip.js](/classdojo/paperclip.js), and [mojo.js](/classdojo/mojo.js).
 
 First create an object that you want to add to the pool party:
 
