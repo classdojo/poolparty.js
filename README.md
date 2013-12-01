@@ -1,51 +1,53 @@
 ### Object Pooling & Recycling [![Alt ci](https://travis-ci.org/classdojo/poolparty.js.png)](https://travis-ci.org/classdojo/poolparty.js)
 
 
-### Motiviation
-
-- The reduce the overhead of instantiating many objects which have a short lifecycle.
-  - see `bindable.js`
-
-
+Pool Party was created to reduce the overhead of creating items that are expensive to create, such as DOM elements from a compiled template, views, etc. It's used in [paperclip.js](/classdojo/paperclip.js), and [mojo.js](/classdojo/mojo.js).
 
 First create an object that you want to add to the pool party:
 
 ```coffeescript
-class BasicView extends EventEmitter
+
+var poolParty = require("poolparty");
+
+function SomeView (options) {
+  this.reset(options);
+}
+
+
+SomeView.prototype.render = function () {
+  // do something
+}
+
+SomeView.prototype.reset = function (options) {
+  // reset options on the view
+}
+
+SomeView.prototype.dispose = function () {
   
-  ###
-  ###
-
-  reset: (@options) ->
+}
 
 
-```
-
-Next, setup the pool party:
-
-```coffeescript
-var BasicView = require "./basicView"
-var objectPool = require("poolparty")({
-
-  max: 50,
-  keepAliveTimeout: 1000 * 10
-
-  # the function that creates the basic views
-  create: (options) ->
-    view = new BasicView()
-    view.reset options
-
-  # the function that resets each recycled view
-  recycle: (view, options) ->
-    view.reset options
+SomeView.pool = poolParty({
+  create: function (options) {
+    return new SomeView(options);
+  },
+  recycle: function (someView, options) {
+    someView.reset(options);
+  }
 });
 
+module.exports = SomeView;
+```
 
-#create a 
-var basicView = objectPool.create({ name: "craig" });
+Next, use it:
 
-#or explicitly add the object back in the object pool
-objectPool.add(basicView);
+```javascript
+var SomeView = require("./someView");
+
+var view = SomeView.create({});
+view.render();
+view.dispose();
+console.log(SomeView.create({}) === view); // true
 ```
 
 
