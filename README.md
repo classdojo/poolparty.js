@@ -5,7 +5,7 @@ Pool Party was created to reduce the overhead of creating items that are expensi
 
 First create an object that you want to add to the pool party:
 
-```coffeescript
+```javascript
 
 var poolParty = require("poolparty");
 
