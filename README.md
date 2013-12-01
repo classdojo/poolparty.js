@@ -36,6 +36,7 @@ SomeView.pool = poolParty({
   }
 });
 
+
 module.exports = SomeView;
 ```
 
@@ -44,10 +45,17 @@ Next, use it:
 ```javascript
 var SomeView = require("./someView");
 
-var view = SomeView.create({});
+// create the view
+var view = SomeView.pool.create({});
+
+// do stuff
 view.render();
+
+// we're done with the view, dispose it
 view.dispose();
-console.log(SomeView.create({}) === view); // true
+
+// call "create" again - it's the same view.
+console.log(SomeView.pool.create({}) === view); // true
 ```
 
 
