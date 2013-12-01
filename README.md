@@ -23,7 +23,7 @@ SomeView.prototype.reset = function (options) {
 }
 
 SomeView.prototype.dispose = function () {
-  
+  SomeView.pool.add(this);
 }
 
 
