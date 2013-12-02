@@ -15,7 +15,9 @@
   },
   "devDependencies": {
     "mocha": "1.8.x",
-    "expect.js": "0.2.x"
+    "expect.js": "0.2.x",
+    "benchmark": "~1.0.0",
+    "protoclass": "0.0.2"
   },
   "author": "",
   "license": "BSD",
