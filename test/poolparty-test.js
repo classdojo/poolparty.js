@@ -45,6 +45,7 @@ describe("poolparty", function() {
 
 
   it("can recycle an object", function() {
+
     expect((object.obj2 = objectPool.create({name:"jake"})).options.name).to.be("jake");
     expect(object.obj2).to.be(object.obj1);
   });
