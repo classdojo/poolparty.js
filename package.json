@@ -1,6 +1,6 @@
 {
   "name": "poolparty",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "./lib/index.js",
   "directories": {
@@ -17,7 +17,9 @@
     "mocha": "1.8.x",
     "expect.js": "0.2.x",
     "benchmark": "~1.0.0",
-    "protoclass": "0.0.2"
+    "protoclass": "0.0.2",
+    "coveralls": "~2.6.1",
+    "istanbul": "~0.2.3"
   },
   "author": "",
   "license": "BSD",
