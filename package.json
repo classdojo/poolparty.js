@@ -1,6 +1,6 @@
 {
   "name": "poolparty",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "./lib/index.js",
   "directories": {
@@ -26,6 +26,7 @@
   "readmeFilename": "README.md",
   "gitHead": "5ea0f204528d657f05c7f27782c4d6a6384819f9",
   "dependencies": {
-    "protoclass": "0.0.x"
+    "protoclass": "0.0.x",
+    "boojs": "0.0.7"
   }
 }
